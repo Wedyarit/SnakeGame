@@ -1,4 +1,7 @@
 #pragma once
+
+// Enumaration classes //
+
 enum class CellType
 {
 	FOOD, EMPTY
