@@ -2,22 +2,6 @@
 #include "Snake.h"
 #include "Board.h"
 
-enum class Direction
-{
-	NONE,
-	RIGHT,
-	LEFT,
-	UP,
-	DOWN
-};
-
-enum class GameStatus
-{
-	ACTIVE,
-	INACTIVE,
-	IN_MENU
-};
-
 class Game
 {
 private:
@@ -26,6 +10,7 @@ private:
 	Board board;
 	GameStatus gameStatus;
 
+	// Returns the next cell based on direction
 	Cell* getNextCell(Cell* currentPosition)
 	{
 		int row = currentPosition->getRow();
@@ -51,17 +36,18 @@ private:
 	}
 
 public:
+	// Constructor
 	Game(const Snake& snake, const Board& board)
 	{
 		this->snake = snake;
 		this->board = board;
 	}
 
+
+	// Basic motion update. Accounting for direction, food slots and collisions.
 	void update()
 	{
-		if (isGameOver())
-			return;
-		if (this->direction == Direction::NONE)
+		if (isGameOver() || this->direction == Direction::NONE)
 			return;
 
 		Cell* nextCell = getNextCell(this->snake.getHead());
@@ -81,6 +67,8 @@ public:
 		}
 	}
 
+
+	// Accessor methods
 	Snake getSnake() const { return this->snake; }
 	void setSnake(const Snake& snake) { this->snake = snake; }
 	Board getBoard() const { return this->board; }

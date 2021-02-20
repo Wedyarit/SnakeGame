@@ -5,6 +5,7 @@
 
 int main()
 {
+	// Temp testing notes
 	Cell* initPos = new Cell(0, 0);
 	Snake snake = Snake(initPos);
 	Board board = Board(10, 10);

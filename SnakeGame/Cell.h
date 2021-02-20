@@ -1,8 +1,5 @@
 #pragma once
-enum class CellType
-{
-	FOOD, EMPTY
-};
+#include "Enumerations.h"
 
 class Cell
 {
@@ -12,13 +9,13 @@ private:
 	CellType type;
 
 public:
+	// Constructors
 	Cell(int row, int col)
 	{
 		this->row = row;
 		this->col = col;
 		this->type = CellType::EMPTY;
 	}
-
 	Cell()
 	{
 		this->row = 0;
@@ -26,18 +23,12 @@ public:
 		this->type = CellType::EMPTY;
 	}
 
-	// Accessor methods
-	CellType getType() const { return this->type; }
-	void setType(CellType cellType) { this->type = cellType; }
-	int getRow() const { return this->row; }
-	int getCol() const { return this->col; }
 
-
+	// Operators overloading
 	friend bool operator== (const Cell& c1, const Cell& c2)
 	{
 		return c1.getCol() == c2.getCol() && c1.getRow() == c1.getRow();
 	}
-
 	Cell& operator= (const Cell& cell)
 	{
 		this->row = cell.row;
@@ -45,5 +36,12 @@ public:
 
 		return *this;
 	}
+
+
+	// Accessor methods
+	CellType getType() const { return this->type; }
+	void setType(CellType cellType) { this->type = cellType; }
+	int getRow() const { return this->row; }
+	int getCol() const { return this->col; }
 };
 
