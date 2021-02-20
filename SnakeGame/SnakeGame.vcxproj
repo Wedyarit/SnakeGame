@@ -146,6 +146,7 @@
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Enumerations.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="MathsUtils.h" />
     <ClInclude Include="Snake.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
