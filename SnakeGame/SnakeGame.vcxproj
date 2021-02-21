@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SnakeGame.cpp" />
+    <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
@@ -147,7 +147,9 @@
     <ClInclude Include="Content.h" />
     <ClInclude Include="Enumerations.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOptions.h" />
     <ClInclude Include="Maths.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector> 
 #include "Cell.h"
-#include "Maths.h"
+#include "Utils/Maths.h"
 
 
 namespace Game
@@ -9,28 +9,28 @@ namespace Game
 	class Board
 	{
 	private:
-		int ROW_COUNT;
-		int COL_COUNT;
+		int rowCount;
+		int colCount;
 		Cell*** cells;
 
 	public:
 		// Constructors
 		Board(int rowCount, int colCount)
 		{
-			this->ROW_COUNT = rowCount;
-			this->COL_COUNT = colCount;
-			this->cells = new Cell * *[ROW_COUNT];
-			for (int i = 0; i < this->ROW_COUNT; i++)
-				cells[i] = new Cell * [this->COL_COUNT];
+			this->rowCount = rowCount;
+			this->colCount = colCount;
+			this->cells = new Cell * *[rowCount];
+			for (int i = 0; i < this->rowCount; i++)
+				cells[i] = new Cell * [this->colCount];
 
-			for (int row = 0; row < this->ROW_COUNT; ++row)
-				for (int column = 0; column < this->COL_COUNT; ++column)
+			for (int row = 0; row < this->rowCount; ++row)
+				for (int column = 0; column < this->colCount; ++column)
 					cells[row][column] = new Cell(row, column);
 		}
 		Board()
 		{
-			this->ROW_COUNT = 0;
-			this->COL_COUNT = 0;
+			this->rowCount = 0;
+			this->colCount = 0;
 			this->cells = new Cell * *[0];
 		}
 
@@ -38,8 +38,8 @@ namespace Game
 		// Random food points generation
 		void generateFood()
 		{
-			int row = Utils::Maths::randomInteger(0, ROW_COUNT);
-			int col = Utils::Maths::randomInteger(0, COL_COUNT);
+			int row = Utils::Maths::randomInteger(0, this->rowCount - 1);
+			int col = Utils::Maths::randomInteger(0, this->colCount - 1);
 
 			this->cells[row][col]->setType(CellType::FOOD);
 		}
@@ -48,5 +48,7 @@ namespace Game
 		// Accessor methods
 		Cell*** getCells() const { return this->cells; }
 		void setCells(Cell*** cells) { this->cells = cells; }
+		int getColCount() const { return this->colCount; }
+		int getRowCount() const { return this->rowCount; }
 	};
 }

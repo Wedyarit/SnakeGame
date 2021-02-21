@@ -8,6 +8,7 @@ namespace Game
 	{
 	private:
 		std::vector<Cell*> snakeCells;
+		int size;
 		Cell* head;
 
 	public:
@@ -16,12 +17,21 @@ namespace Game
 		{
 			this->head = firstPosition;
 			this->snakeCells.push_back(head);
+			this->size = 1;
 		}
-		Snake() { this->head = new Cell(); }
+		Snake()
+		{
+			this->head = new Cell();
+			this->size = 1;
+		}
 
 
 		// Increases snake's size
-		void grow() { this->snakeCells.push_back(this->head); }
+		void grow()
+		{
+			this->snakeCells.push_back(this->head);
+			this->size++;
+		}
 
 		// Change the location of the snake
 		void move(Cell* nextCell)
@@ -46,5 +56,6 @@ namespace Game
 		std::vector<Cell*> getSnakeCells() const { return this->snakeCells; }
 		Cell* getHead() const { return this->head; }
 		void setHead(Cell* head) { this->head = head; }
+		int getSize() const { return this->size; }
 	};
 }

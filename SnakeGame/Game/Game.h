@@ -21,15 +21,19 @@ namespace Game
 			switch (this->direction)
 			{
 			case Direction::RIGHT:
+				if (col + 2 > this->board.getColCount()) return nullptr;
 				col++;
 				break;
 			case Direction::LEFT:
+				if (col - 1 < 0) return nullptr;
 				col--;
 				break;
 			case Direction::UP:
 				row--;
+				if (row - 1 < 0) return nullptr;
 				break;
 			case Direction::DOWN:
+				if (row + 2 > this->board.getRowCount()) return nullptr;
 				row++;
 				break;
 			}
@@ -37,14 +41,38 @@ namespace Game
 			return this->board.getCells()[row][col];
 		}
 
+
 	public:
-		// Constructor
+		// Constructors
 		Game(const Snake& snake, const Board& board)
 		{
 			this->snake = snake;
 			this->board = board;
 		}
+		Game()
+		{
+			this->snake = Snake();
+			this->board = Board();
+		}
 
+		void updateDirection(char key)
+		{
+			switch (key)
+			{
+			case 72:
+				this->setDirection(Direction::UP);
+				break;
+			case 80:
+				this->setDirection(Direction::DOWN);
+				break;
+			case 77:
+				this->setDirection(Direction::RIGHT);
+				break;
+			case 75:
+				this->setDirection(Direction::LEFT);
+				break;
+			}
+		}
 
 		// Basic motion update. Accounting for direction, food slots and collisions.
 		void update()
@@ -53,7 +81,7 @@ namespace Game
 				return;
 
 			Cell* nextCell = getNextCell(this->snake.getHead());
-			if (this->snake.checkCrashed(nextCell))
+			if (nextCell == nullptr || this->snake.checkCrashed(nextCell))
 			{
 				setDirection(Direction::NONE);
 				setGameStatus(GameStatus::INACTIVE);
@@ -68,7 +96,6 @@ namespace Game
 				}
 			}
 		}
-
 
 		// Accessor methods
 		Snake getSnake() const { return this->snake; }

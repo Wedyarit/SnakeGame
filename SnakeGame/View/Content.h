@@ -12,7 +12,7 @@ namespace View
 		WORD color;
 	public:
 		// Constructors
-		Content(int x, int y, std::string content, WORD color)
+		Content(int x, int y, std::string content, WORD color = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED)
 		{
 			this->coordinates.X = x;
 			this->coordinates.Y = y;
