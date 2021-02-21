@@ -144,10 +144,12 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="Content.h" />
     <ClInclude Include="Enumerations.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="MathsUtils.h" />
+    <ClInclude Include="Maths.h" />
     <ClInclude Include="Snake.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

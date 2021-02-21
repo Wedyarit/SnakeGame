@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\Game">
+      <UniqueIdentifier>{00ff7a4b-55ea-4aaa-9e2c-7819915f65c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Utils">
+      <UniqueIdentifier>{618ecf6a-2759-4c15-bc4e-ece4d3921bb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\View">
+      <UniqueIdentifier>{eb799268-993d-41d7-bd3b-9a8956393f11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SnakeGame.cpp">
@@ -20,23 +29,29 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Snake.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Board.h">
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
     <ClInclude Include="Cell.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Board.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
     <ClInclude Include="Enumerations.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
-    <ClInclude Include="MathsUtils.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Game.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
+      <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Файлы заголовков\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Content.h">
+      <Filter>Файлы заголовков\View</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
