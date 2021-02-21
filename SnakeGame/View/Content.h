@@ -7,27 +7,28 @@ namespace View
 	class Content
 	{
 	private:
-		COORD coordinates;
-		std::string content;
-		WORD color;
+		COORD _coordinates;
+		std::string _content;
+		WORD _color;
 	public:
 		// Constructors
 		Content(int x, int y, std::string content, WORD color = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED)
 		{
-			this->coordinates.X = x;
-			this->coordinates.Y = y;
-			this->content = content;
-			this->color = color;
+			this->_coordinates.X = x;
+			this->_coordinates.Y = y;
+			this->_content = content;
+			this->_color = color;
 		}
 		Content()
 		{
-			this->color = BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED;
-			this->content = "";
+			this->_color = BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED;
+			this->_content = "";
 		}
 
-		COORD getCoordinates() const { return this->coordinates; }
-		std::string getContent() const { return this->content; }
-		WORD getColor() const { return this->color; }
+		// Accessor methods
+		COORD getCoordinates() const { return this->_coordinates; }
+		std::string getContent() const { return this->_content; }
+		WORD getColor() const { return this->_color; }
 	};
 }
 

@@ -10,14 +10,15 @@ namespace Utils
 	class ThreadManager
 	{
 	private:
-		char key;
+		char _key;
 
 	public:
+		// Constructor
 		ThreadManager()
 		{
-			this->key = '\0';
-			std::thread keyListener(View::View::control, std::ref(this->key));
-			std::thread gameCycle(Model::gameCycle, std::ref(key));
+			this->_key = '\0';
+			std::thread keyListener(View::View::control, std::ref(this->_key));
+			std::thread gameCycle(Model::gameCycle, std::ref(_key));
 			keyListener.join();
 			gameCycle.join();
 		}

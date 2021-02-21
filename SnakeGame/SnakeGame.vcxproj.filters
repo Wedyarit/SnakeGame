@@ -24,39 +24,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Board.h">
-      <Filter>Файлы заголовков\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Cell.h">
-      <Filter>Файлы заголовков\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Enumerations.h">
-      <Filter>Файлы заголовков\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Файлы заголовков\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Snake.h">
-      <Filter>Файлы заголовков\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths.h">
-      <Filter>Файлы заголовков\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Файлы заголовков\View</Filter>
-    </ClInclude>
-    <ClInclude Include="Content.h">
-      <Filter>Файлы заголовков\View</Filter>
-    </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="GameOptions.h">
+    <ClInclude Include="Game\Game.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Snake.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Board.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Cell.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enumerations.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ThreadManager.h">
       <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\GameOptions.h">
+      <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Maths.h">
+      <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="View\View.h">
+      <Filter>Файлы заголовков\View</Filter>
+    </ClInclude>
+    <ClInclude Include="View\Content.h">
+      <Filter>Файлы заголовков\View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Program.cpp">
+    <ClCompile Include="SnakeGame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

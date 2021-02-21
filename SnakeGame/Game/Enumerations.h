@@ -1,6 +1,6 @@
 #pragma once
 
-// Enumaration classes //
+/* Enumaration classes */
 namespace Game
 {
 	enum class CellType

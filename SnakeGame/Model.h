@@ -12,6 +12,7 @@
 class Model
 {
 public:
+	// Sets up game options
 	Game::Game static setupOptions(Utils::GameOptions gameOptions)
 	{
 		Game::Game game = Game::Game(Game::Snake(new Game::Cell(gameOptions.getSnakeInitX(), gameOptions.getSnakeInitY())), Game::Board(gameOptions.getBoardRowCount(), gameOptions.getBoardColCount()));
@@ -22,6 +23,7 @@ public:
 		return game;
 	}
 
+	// Main game cycle
 	void static gameCycle(char& key)
 	{
 		Game::Game game = setupOptions(Utils::GameOptions());

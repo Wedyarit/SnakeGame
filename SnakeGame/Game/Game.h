@@ -1,16 +1,15 @@
 #pragma once
-#include "Snake.h"
-#include "Board.h"
+
 
 namespace Game
 {
 	class Game
 	{
 	private:
-		Direction direction;
-		Snake snake;
-		Board board;
-		GameStatus gameStatus;
+		Direction _direction;
+		Snake _snake;
+		Board _board;
+		GameStatus _gameStatus;
 
 		// Returns the next cell based on direction
 		Cell* getNextCell(Cell* currentPosition)
@@ -18,10 +17,10 @@ namespace Game
 			int row = currentPosition->getRow();
 			int col = currentPosition->getCol();
 
-			switch (this->direction)
+			switch (this->_direction)
 			{
 			case Direction::RIGHT:
-				if (col + 2 > this->board.getColCount()) return nullptr;
+				if (col + 2 > this->_board.getColCount()) return nullptr;
 				col++;
 				break;
 			case Direction::LEFT:
@@ -33,12 +32,12 @@ namespace Game
 				if (row - 1 < 0) return nullptr;
 				break;
 			case Direction::DOWN:
-				if (row + 2 > this->board.getRowCount()) return nullptr;
+				if (row + 2 > this->_board.getRowCount()) return nullptr;
 				row++;
 				break;
 			}
 
-			return this->board.getCells()[row][col];
+			return this->_board.getCells()[row][col];
 		}
 
 
@@ -46,15 +45,16 @@ namespace Game
 		// Constructors
 		Game(const Snake& snake, const Board& board)
 		{
-			this->snake = snake;
-			this->board = board;
+			this->_snake = snake;
+			this->_board = board;
 		}
 		Game()
 		{
-			this->snake = Snake();
-			this->board = Board();
+			this->_snake = Snake();
+			this->_board = Board();
 		}
 
+		// Basic direction update. Accounting for pressed key
 		void updateDirection(char key)
 		{
 			switch (key)
@@ -74,37 +74,38 @@ namespace Game
 			}
 		}
 
-		// Basic motion update. Accounting for direction, food slots and collisions.
+		// Basic motion update. Accounting for direction, food slots and collisions
 		void update()
 		{
-			if (isGameOver() || this->direction == Direction::NONE)
+			if (isGameOver() || this->_direction == Direction::NONE)
 				return;
 
-			Cell* nextCell = getNextCell(this->snake.getHead());
-			if (nextCell == nullptr || this->snake.checkCrashed(nextCell))
+			Cell* nextCell = getNextCell(this->_snake.getHead());
+			if (nextCell == nullptr || this->_snake.checkCrashed(nextCell))
 			{
 				setDirection(Direction::NONE);
 				setGameStatus(GameStatus::INACTIVE);
 			}
 			else
 			{
-				snake.move(nextCell);
+				_snake.move(nextCell);
 				if ((*nextCell).getType() == CellType::FOOD)
 				{
-					this->snake.grow();
-					this->board.generateFood();
+					this->_snake.grow();
+					this->_board.generateFood();
 				}
 			}
 		}
 
+
 		// Accessor methods
-		Snake getSnake() const { return this->snake; }
-		void setSnake(const Snake& snake) { this->snake = snake; }
-		Board getBoard() const { return this->board; }
-		void setBoard(const Board& board) { this->board = board; }
-		bool isGameOver() const { return this->gameStatus == GameStatus::INACTIVE; }
-		void setGameStatus(GameStatus gameStatus) { this->gameStatus = gameStatus; }
-		Direction getDirection() const { return this->direction; }
-		void setDirection(Direction direction) { this->direction = direction; }
+		Snake getSnake() const { return this->_snake; }
+		void setSnake(const Snake& snake) { this->_snake = snake; }
+		Board getBoard() const { return this->_board; }
+		void setBoard(const Board& board) { this->_board = board; }
+		bool isGameOver() const { return this->_gameStatus == GameStatus::INACTIVE; }
+		void setGameStatus(GameStatus gameStatus) { this->_gameStatus = gameStatus; }
+		Direction getDirection() const { return this->_direction; }
+		void setDirection(Direction direction) { this->_direction = direction; }
 	};
 }

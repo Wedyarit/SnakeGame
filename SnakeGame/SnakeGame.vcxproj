@@ -139,19 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Program.cpp" />
+    <ClInclude Include="Game\Board.h" />
+    <ClInclude Include="Game\Cell.h" />
+    <ClInclude Include="Game\Enumerations.h" />
+    <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\Snake.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="Utils\GameOptions.h" />
+    <ClInclude Include="Utils\Maths.h" />
+    <ClInclude Include="Utils\ThreadManager.h" />
+    <ClInclude Include="View\Content.h" />
+    <ClInclude Include="View\View.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Board.h" />
-    <ClInclude Include="Cell.h" />
-    <ClInclude Include="Content.h" />
-    <ClInclude Include="Enumerations.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameOptions.h" />
-    <ClInclude Include="Maths.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="Snake.h" />
-    <ClInclude Include="View.h" />
+    <ClCompile Include="SnakeGame.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

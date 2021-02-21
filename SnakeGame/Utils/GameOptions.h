@@ -7,41 +7,45 @@ namespace Utils
 	{
 	private:
 		// Board sizes
-		int boardRowCount;
-		int boardColCount;
+		int _boardRowCount;
+		int _boardColCount;
 
 		// Snake's init position
-		int snakeInitX;
-		int snakeInitY;
-		Game::Direction direction;
+		int _snakeInitX;
+		int _snakeInitY;
+		Game::Direction _direction;
 
 		// Game delay (in ms)
-		int gameDelay;
+		int _gameDelay;
 
 	public:
+		// Constructor
 		GameOptions()
 		{
-			this->boardRowCount = 15;
-			this->boardColCount = 30;
+			this->_boardRowCount = 15;
+			this->_boardColCount = 30;
 
-			this->snakeInitX = 7;
-			this->snakeInitY = 15;
-			this->direction = Game::Direction::RIGHT;
+			this->_snakeInitX = 7;
+			this->_snakeInitY = 15;
+			this->_direction = Game::Direction::RIGHT;
 
-			this->gameDelay = 100;
+			this->_gameDelay = 100;
 		}
 
+
+		// Config file parser
 		void parseOptions()
 		{
 			// TODO
 		}
 
+
 		// Accessor methods
-		int getBoardRowCount() const { return this->boardRowCount; }
-		int getBoardColCount() const { return this->boardColCount; }
-		int getSnakeInitX() const { return this->snakeInitX; }
-		int getSnakeInitY() const { return this->snakeInitY; }
-		Game::Direction getDirection() const { return this->direction; }
-		int getGameDelay() const { return this->gameDelay; }
+		int getBoardRowCount() const { return this->_boardRowCount; }
+		int getBoardColCount() const { return this->_boardColCount; }
+		int getSnakeInitX() const { return this->_snakeInitX; }
+		int getSnakeInitY() const { return this->_snakeInitY; }
+		Game::Direction getDirection() const { return this->_direction; }
+		int getGameDelay() const { return this->_gameDelay; }
 	};
 }
